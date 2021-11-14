@@ -24,6 +24,7 @@ namespace ELECTION
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<Models.ELECTIONDBContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +48,14 @@ namespace ELECTION
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "adminRoute",
+                    pattern: "Administrateurs/Create");
+                    //defaults: new { controller = "Administrateurs", action = "Details" } );
+        });
+        
+        app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
