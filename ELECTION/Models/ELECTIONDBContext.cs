@@ -27,7 +27,7 @@ namespace ELECTION.Models
             if (!optionsBuilder.IsConfigured)
             {
 
-                optionsBuilder.UseSqlServer(@"Server=DESKTOP-6362OT4\SQLEXPRESS;Database=ELECTIONDBnew;Trusted_Connection=True");
+                optionsBuilder.UseSqlServer(@"Server=RAHMA\SQLEXPRESS;Database=ELECTIONDBnew;Trusted_Connection=True");
             }
         }
 
