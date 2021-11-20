@@ -7,14 +7,14 @@
        
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
         <meta charset="utf-8" />
-        <title>Complete Admin : Blog</title>
+       
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="" name="description" />
         <meta content="" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon" />    <!-- Favicon -->
-        <link rel="apple-touch-icon-precomposed" href="assets/images/apple-touch-icon-57-precomposed.png">	<!-- For iPhone -->
+        <link rel="shortcut icon" href="~/assets/images/favicon.png" type="image/x-icon" />    <!-- Favicon -->
+        <link rel="apple-touch-icon-precomposed" href="~/assets/images/apple-touch-icon-57-precomposed.png">	<!-- For iPhone -->
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/assets/images/apple-touch-icon-114-precomposed.png">    <!-- For iPhone 4 Retina display -->
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/assets/images/apple-touch-icon-72-precomposed.png">    <!-- For iPad -->
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/assets/images/apple-touch-icon-144-precomposed.png">    <!-- For iPad Retina display -->
@@ -23,7 +23,7 @@
 
 
         <!-- CORE CSS FRAMEWORK - START -->
-        <link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="~/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
         <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <!-- <link href="../assets/plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/> -->
         <link href="~/assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
@@ -673,7 +673,7 @@
                         <div class="page-title">
 
                             <div class="float-left">
-                                <!-- PAGE HEADING TAG - START --><h1 class="title">Blog</h1><!-- PAGE HEADING TAG - END -->                            </div>
+                                <!-- PAGE HEADING TAG - START --><h1 class="title">@ViewData["Titre"]</h1><!-- PAGE HEADING TAG - END -->                            </div>
 
 
                         </div>
@@ -683,10 +683,10 @@
 
 
                     <div class="col-xl-12">
-                        <section class="box nobox ">
+                        <section class="box  ">
                             <div class="content-body">
 
-              <div >
+              <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -968,5 +968,8 @@
 <script type="text/javascript">
 
 
-</script><div class="jvectormap-tip"></div></body>
+</script><div class="jvectormap-tip"></div>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    </body>
 </html>

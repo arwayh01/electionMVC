@@ -21,6 +21,7 @@ namespace ELECTION.Controllers
         // GET: Administrateurs
         public async Task<IActionResult> Index()
         {
+            ViewData["titre"] = " Liste Des Administrateurs";
             return View(await _context.Administrateurs.ToListAsync());
         }
 
@@ -45,6 +46,7 @@ namespace ELECTION.Controllers
         // GET: Administrateurs/Create
         public IActionResult Create()
         {
+            ViewData["titre"] = " Ajouter Un Administrateur";
             return View();
         }
 
@@ -77,6 +79,7 @@ namespace ELECTION.Controllers
             {
                 return NotFound();
             }
+            ViewData["titre"] = " Mise à Jour Administrateur";
             return View(administrateur);
         }
 

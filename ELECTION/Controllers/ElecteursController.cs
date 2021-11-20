@@ -21,6 +21,7 @@ namespace ELECTION.Controllers
         // GET: Electeurs
         public async Task<IActionResult> Index()
         {
+            ViewData["titre"] = " Liste Des Electeurs";
             var eLECTIONDBContext = _context.Electeurs.Include(e => e.CentreElection).Include(e => e.Condidatcandidat);
             return View(await eLECTIONDBContext.ToListAsync());
         }
@@ -48,6 +49,7 @@ namespace ELECTION.Controllers
         // GET: Electeurs/Create
         public IActionResult Create()
         {
+            ViewData["titre"] = " Ajouter Un Electeur";
             ViewData["CentreElectionId"] = new SelectList(_context.CentreElections, "CentreElectionId", "CentreElectionId");
             ViewData["CondidatcandidatId"] = new SelectList(_context.Candidats, "CandidatId", "CandidatId");
             return View();
@@ -66,6 +68,7 @@ namespace ELECTION.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            
             ViewData["CentreElectionId"] = new SelectList(_context.CentreElections, "CentreElectionId", "CentreElectionId", electeur.CentreElectionId);
             ViewData["CondidatcandidatId"] = new SelectList(_context.Candidats, "CandidatId", "CandidatId", electeur.CondidatcandidatId);
             return View(electeur);
@@ -84,6 +87,7 @@ namespace ELECTION.Controllers
             {
                 return NotFound();
             }
+            ViewData["titre"] = " Mise à jour Electeur";
             ViewData["CentreElectionId"] = new SelectList(_context.CentreElections, "CentreElectionId", "CentreElectionId", electeur.CentreElectionId);
             ViewData["CondidatcandidatId"] = new SelectList(_context.Candidats, "CandidatId", "CandidatId", electeur.CondidatcandidatId);
             return View(electeur);
@@ -121,6 +125,7 @@ namespace ELECTION.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["CentreElectionId"] = new SelectList(_context.CentreElections, "CentreElectionId", "CentreElectionId", electeur.CentreElectionId);
             ViewData["CondidatcandidatId"] = new SelectList(_context.Candidats, "CandidatId", "CandidatId", electeur.CondidatcandidatId);
             return View(electeur);

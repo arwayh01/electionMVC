@@ -13,16 +13,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NomElecteur)
+               Nom 
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PrenomElecteur)
+               Prenom 
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CinElecteur)
+               Numéro Cin
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GenreElecteur)
+               Genre
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CentreElection)
@@ -51,9 +51,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CentreElection.CentreElectionId)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Condidatcandidat.CandidatId)
-            </td>
+          
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ElecteurId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ElecteurId">Details</a> |
