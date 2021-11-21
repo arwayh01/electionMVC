@@ -6,27 +6,32 @@
 
 <h1>Index</h1>
 
+<div class="row">
+    <div class="col-md-10"></div>
+    <div class="col-md-2">
 <p>
-    <a asp-action="Create">Create New</a>
+   <a asp-action="Create" class="btn btn-primary btn-icon bottom15 right15">  
+                                              <i class="fa fa-plus"></i> &nbsp; <span>Ajouter</span></a>
+                                        
 </p>
+        </div>
+    </div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NomCandidat)
+             Nom
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PrenomCandidat)
+              Prenom
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CinCandidat)
+              Numéro Cin
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageCandidat)
+              Image
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Administrateur)
-            </th>
+          
             <th></th>
         </tr>
     </thead>
@@ -45,12 +50,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ImageCandidat)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Administrateur.AdministrateurId)
-            </td>
+           
             <td>
                 <a asp-action="Edit" asp-route-id="@item.CandidatId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CandidatId">Details</a> |
+                
                 <a asp-action="Delete" asp-route-id="@item.CandidatId">Delete</a>
             </td>
         </tr>

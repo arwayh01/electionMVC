@@ -7,7 +7,9 @@
 <h4>Ajout</h4>
 <hr />
 <div class="row">
+      <div class="col-md-8">
                                     <form asp-action="Create">
+            <div class="col-12">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 
@@ -15,25 +17,24 @@
 
                                          
 
-                                            <div class="col-12 col-md-9 col-lg-8 padding-bottom-30">
 
             <div class="form-group">
-                <label asp-for="NomAdmin" class="control-label"></label>
+                <label asp-for="NomAdmin" class="control-label">Nom</label>
                 <input asp-for="NomAdmin" class="form-control" />
                 <span asp-validation-for="NomAdmin" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PrenomAdmin" class="control-label"></label>
+                <label asp-for="PrenomAdmin" class="control-label">Prenom</label>
                 <input asp-for="PrenomAdmin" class="form-control" />
                 <span asp-validation-for="PrenomAdmin" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CinAdmin" class="control-label"></label>
+                <label asp-for="CinAdmin" class="control-label">Numéro cin</label>
                 <input asp-for="CinAdmin" class="form-control" />
                 <span asp-validation-for="CinAdmin" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MotDePasse" class="control-label"></label>
+                <label asp-for="MotDePasse" class="control-label">Mot de pass</label>
                 <input asp-for="MotDePasse" class="form-control" />
                 <span asp-validation-for="MotDePasse" class="text-danger"></span>
             </div>
@@ -43,15 +44,18 @@
                                             <div class="col-12 col-md-9 col-lg-8 padding-bottom-30">
                                                 <div class="text-left">
                                                      <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-                                                           <button type="button" class="btn">Cancel</button>
+                <input type="submit" value="Enregistrer" class="btn btn-primary" />
+                                                          
             </div>
                                                   
                                                 </div>
                                             </div>
                                     
-                                </div></form>
-
+                                </div>
+                     
+                              
+                </form>
+          </div>
 
                             </div>
 
