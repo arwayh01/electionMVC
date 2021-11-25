@@ -6,15 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ELECTION.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace ELECTION.Controllers
 {
     public class CandidatsController : Controller
     {
         private readonly ELECTIONDBContext _context;
-
-        public CandidatsController(ELECTIONDBContext context)
+        private readonly IWebHostEnvironment _hostEnvironment;
+        public CandidatsController(ELECTIONDBContext context, IWebHostEnvironment hostEnvironment)
         {
+            this._hostEnvironment = hostEnvironment;
             _context = context;
         }
 
@@ -56,10 +59,19 @@ namespace ELECTION.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CandidatId,NomCandidat,PrenomCandidat,CinCandidat,ImageCandidat,AdministrateurId")] Candidat candidat)
+        public async Task<IActionResult> Create([Bind("CandidatId,NomCandidat,PrenomCandidat,CinCandidat,ImageFile,AdministrateurId")] Candidat candidat)
         {
             if (ModelState.IsValid)
             {
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                string fileName = Path.GetFileNameWithoutExtension(candidat.ImageFile.FileName);
+                string extension = Path.GetExtension(candidat.ImageFile.FileName);
+                candidat.ImageCandidat = "img"+candidat.CinCandidat + extension;
+                string path = Path.Combine(wwwRootPath + "/Image/", fileName);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await candidat.ImageFile.CopyToAsync(fileStream);
+                }
                 _context.Add(candidat);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

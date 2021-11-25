@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -17,6 +19,8 @@ namespace ELECTION.Models
         public string PrenomCandidat { get; set; }
         public string CinCandidat { get; set; }
         public string ImageCandidat { get; set; }
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
         public int? AdministrateurId { get; set; }
 
         public virtual Administrateur Administrateur { get; set; }
