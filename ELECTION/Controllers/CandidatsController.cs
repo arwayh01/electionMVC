@@ -51,6 +51,7 @@ namespace ELECTION.Controllers
         public IActionResult Create()
         {
             ViewData["AdministrateurId"] = new SelectList(_context.Administrateurs, "AdministrateurId", "AdministrateurId");
+            ViewData["AdministrateurNom"] = new SelectList(_context.Administrateurs, "NomAdmin", "NomAdmin");
             return View();
         }
 
@@ -64,9 +65,11 @@ namespace ELECTION.Controllers
             if (ModelState.IsValid)
             {
                 string wwwRootPath = _hostEnvironment.WebRootPath;
-                string fileName = Path.GetFileNameWithoutExtension(candidat.ImageFile.FileName);
+            
                 string extension = Path.GetExtension(candidat.ImageFile.FileName);
-                candidat.ImageCandidat = "img"+candidat.CinCandidat + extension;
+                string fileName = candidat.CinCandidat + extension;
+                candidat.ImageCandidat = candidat.CinCandidat + extension;
+               // string name= candidat.ImageFile.FileName
                 string path = Path.Combine(wwwRootPath + "/Image/", fileName);
                 using (var fileStream = new FileStream(path, FileMode.Create))
                 {

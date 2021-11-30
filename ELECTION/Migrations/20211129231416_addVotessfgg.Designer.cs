@@ -4,14 +4,16 @@ using ELECTION.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ELECTION.Migrations
 {
     [DbContext(typeof(ELECTIONDBContext))]
-    partial class ELECTIONDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211129231416_addVotessfgg")]
+    partial class addVotessfgg
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -18,6 +18,8 @@ namespace ELECTION.Models
         }
 
         public virtual DbSet<Administrateur> Administrateurs { get; set; }
+
+        public virtual DbSet<Vote> Votes { get; set; }
         public virtual DbSet<Candidat> Candidats { get; set; }
         public virtual DbSet<CentreElection> CentreElections { get; set; }
         public virtual DbSet<Electeur> Electeurs { get; set; }
@@ -27,7 +29,7 @@ namespace ELECTION.Models
             if (!optionsBuilder.IsConfigured)
             {
 
-                optionsBuilder.UseSqlServer(@"Server=DESKTOP-6362OT4\SQLEXPRESS;Database=ELECTIONDBnew;Trusted_Connection=True");
+                optionsBuilder.UseSqlServer(@"Server=RAHMA\SQLEXPRESS;Database=ElecteurDB;Trusted_Connection=True");
             }
         }
 
@@ -42,6 +44,16 @@ namespace ELECTION.Models
                 entity.Property(e => e.NomAdmin).HasColumnName("nom_admin");
 
                 entity.Property(e => e.PrenomAdmin).HasColumnName("prenom_admin");
+            });
+
+            modelBuilder.Entity<Vote>(entity =>
+            {
+                entity.HasIndex(e => e.ElecteurId, "IX_Electeurs_ElecteurId")
+                   .IsUnique();
+                entity.HasOne(d => d.Electeur)
+               .WithOne(p => p.Vote)
+               .HasForeignKey<Vote>(d => d.ElecteurId);
+
             });
 
             modelBuilder.Entity<Candidat>(entity =>
@@ -81,7 +93,7 @@ namespace ELECTION.Models
 
             modelBuilder.Entity<Electeur>(entity =>
             {
-                entity.HasIndex(e => e.CondidatcandidatId, "IX_Electeurs_CondidatcandidatId");
+                entity.HasIndex(e => e.VoteId, "IX_Votes_VoteId");
 
                 entity.HasIndex(e => e.CentreElectionId, "IX_Electeurs_centreElectionId");
 
@@ -101,9 +113,6 @@ namespace ELECTION.Models
                     .WithMany(p => p.Electeurs)
                     .HasForeignKey(d => d.CentreElectionId);
 
-                entity.HasOne(d => d.Condidatcandidat)
-                    .WithMany(p => p.Electeurs)
-                    .HasForeignKey(d => d.CondidatcandidatId);
             });
 
             OnModelCreatingPartial(modelBuilder);

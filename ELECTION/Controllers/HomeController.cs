@@ -20,7 +20,13 @@ namespace ELECTION.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            ModelDashboardView dashboard = new ModelDashboardView();
+
+            dashboard.doctors_count = 12;  
+            dashboard.nurses_count = 20;
+            dashboard.patients_count = 10;
+
+            return View(dashboard);
         }
 
         public IActionResult Privacy()

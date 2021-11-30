@@ -13,9 +13,11 @@ namespace ELECTION.Models
         public string CinElecteur { get; set; }
         public string GenreElecteur { get; set; }
         public int? CentreElectionId { get; set; }
+        public int? VoteId { get; set; }
         public int? CondidatcandidatId { get; set; }
 
         public virtual CentreElection CentreElection { get; set; }
         public virtual Candidat Condidatcandidat { get; set; }
+        public virtual Vote Vote { get; set; }
     }
 }

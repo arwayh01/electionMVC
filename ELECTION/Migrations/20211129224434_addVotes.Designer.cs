@@ -4,14 +4,16 @@ using ELECTION.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ELECTION.Migrations
 {
     [DbContext(typeof(ELECTIONDBContext))]
-    partial class ELECTIONDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211129224434_addVotes")]
+    partial class addVotes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,16 +141,11 @@ namespace ELECTION.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("prenom_electeur");
 
-                    b.Property<int?>("VoteId")
-                        .HasColumnType("int");
-
                     b.HasKey("ElecteurId");
 
-                    b.HasIndex("CondidatcandidatId");
+                    b.HasIndex(new[] { "CondidatcandidatId" }, "IX_Electeurs_CondidatcandidatId");
 
                     b.HasIndex(new[] { "CentreElectionId" }, "IX_Electeurs_centreElectionId");
-
-                    b.HasIndex(new[] { "VoteId" }, "IX_Votes_VoteId");
 
                     b.ToTable("Electeurs");
                 });
@@ -165,7 +162,7 @@ namespace ELECTION.Migrations
 
                     b.HasKey("VoteId");
 
-                    b.HasIndex(new[] { "ElecteurId" }, "IX_Electeurs_ElecteurId")
+                    b.HasIndex(new[] { "ElecteurId" }, "IX_Electeur_ElecteurId")
                         .IsUnique();
 
                     b.ToTable("Votes");
