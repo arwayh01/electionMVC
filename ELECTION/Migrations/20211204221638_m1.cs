@@ -2,7 +2,7 @@
 
 namespace ELECTION.Migrations
 {
-    public partial class addVotes : Migration
+    public partial class m1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

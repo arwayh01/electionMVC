@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ELECTION.Migrations
+namespace ELECTION.Migrations.ELECTIONDB
 {
-    public partial class ELECTIONDBnew : Migration
+    public partial class m2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -77,6 +77,7 @@ namespace ELECTION.Migrations
                     cin_electeur = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     genre_electeur = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     centreElectionId = table.Column<int>(type: "int", nullable: true),
+                    VoteId = table.Column<int>(type: "int", nullable: true),
                     CondidatcandidatId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -94,6 +95,25 @@ namespace ELECTION.Migrations
                         principalTable: "CentreElections",
                         principalColumn: "centreElectionId",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Votes",
+                columns: table => new
+                {
+                    VoteId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ElecteurId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Votes", x => x.VoteId);
+                    table.ForeignKey(
+                        name: "FK_Votes_Electeurs_ElecteurId",
+                        column: x => x.ElecteurId,
+                        principalTable: "Electeurs",
+                        principalColumn: "electeurId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -116,10 +136,24 @@ namespace ELECTION.Migrations
                 name: "IX_Electeurs_CondidatcandidatId",
                 table: "Electeurs",
                 column: "CondidatcandidatId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Votes_VoteId",
+                table: "Electeurs",
+                column: "VoteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Electeurs_ElecteurId",
+                table: "Votes",
+                column: "ElecteurId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Votes");
+
             migrationBuilder.DropTable(
                 name: "Electeurs");
 

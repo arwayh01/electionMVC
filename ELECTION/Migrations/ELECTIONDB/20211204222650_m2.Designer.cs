@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace ELECTION.Migrations
+namespace ELECTION.Migrations.ELECTIONDB
 {
     [DbContext(typeof(ELECTIONDBContext))]
-    [Migration("20211129231416_addVotessfgg")]
-    partial class addVotessfgg
+    [Migration("20211204222650_m2")]
+    partial class m2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

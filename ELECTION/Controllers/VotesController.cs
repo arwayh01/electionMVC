@@ -11,23 +11,23 @@ using Microsoft.AspNetCore.Authorization;
 namespace ELECTION.Controllers
 {
     [Authorize]
-    public class CentreElectionsController : Controller
+    public class VotesController : Controller
     {
         private readonly ELECTIONDBContext _context;
 
-        public CentreElectionsController(ELECTIONDBContext context)
+        public VotesController(ELECTIONDBContext context)
         {
             _context = context;
         }
 
-        // GET: CentreElections
+        // GET: Votes
         public async Task<IActionResult> Index()
         {
-            var eLECTIONDBContext = _context.CentreElections.Include(c => c.Administrateur);
+            var eLECTIONDBContext = _context.Votes.Include(v => v.Electeur);
             return View(await eLECTIONDBContext.ToListAsync());
         }
 
-        // GET: CentreElections/Details/5
+        // GET: Votes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -35,42 +35,42 @@ namespace ELECTION.Controllers
                 return NotFound();
             }
 
-            var centreElection = await _context.CentreElections
-                .Include(c => c.Administrateur)
-                .FirstOrDefaultAsync(m => m.CentreElectionId == id);
-            if (centreElection == null)
+            var vote = await _context.Votes
+                .Include(v => v.Electeur)
+                .FirstOrDefaultAsync(m => m.VoteId == id);
+            if (vote == null)
             {
                 return NotFound();
             }
 
-            return View(centreElection);
+            return View(vote);
         }
 
-        // GET: CentreElections/Create
+        // GET: Votes/Create
         public IActionResult Create()
         {
-            ViewData["AdministrateurId"] = new SelectList(_context.Administrateurs, "AdministrateurId", "AdministrateurId");
+            ViewData["ElecteurId"] = new SelectList(_context.Electeurs, "ElecteurId", "ElecteurId");
             return View();
         }
 
-        // POST: CentreElections/Create
+        // POST: Votes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CentreElectionId,LibelleCentre,AdresseCentre,AdministrateurId")] CentreElection centreElection)
+        public async Task<IActionResult> Create([Bind("VoteId,ElecteurId")] Vote vote)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(centreElection);
+                _context.Add(vote);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AdministrateurId"] = new SelectList(_context.Administrateurs, "AdministrateurId", "AdministrateurId", centreElection.AdministrateurId);
-            return View(centreElection);
+            ViewData["ElecteurId"] = new SelectList(_context.Electeurs, "ElecteurId", "ElecteurId", vote.ElecteurId);
+            return View(vote);
         }
 
-        // GET: CentreElections/Edit/5
+        // GET: Votes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -78,23 +78,23 @@ namespace ELECTION.Controllers
                 return NotFound();
             }
 
-            var centreElection = await _context.CentreElections.FindAsync(id);
-            if (centreElection == null)
+            var vote = await _context.Votes.FindAsync(id);
+            if (vote == null)
             {
                 return NotFound();
             }
-            ViewData["AdministrateurId"] = new SelectList(_context.Administrateurs, "AdministrateurId", "AdministrateurId", centreElection.AdministrateurId);
-            return View(centreElection);
+            ViewData["ElecteurId"] = new SelectList(_context.Electeurs, "ElecteurId", "ElecteurId", vote.ElecteurId);
+            return View(vote);
         }
 
-        // POST: CentreElections/Edit/5
+        // POST: Votes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CentreElectionId,LibelleCentre,AdresseCentre,AdministrateurId")] CentreElection centreElection)
+        public async Task<IActionResult> Edit(int id, [Bind("VoteId,ElecteurId")] Vote vote)
         {
-            if (id != centreElection.CentreElectionId)
+            if (id != vote.VoteId)
             {
                 return NotFound();
             }
@@ -103,12 +103,12 @@ namespace ELECTION.Controllers
             {
                 try
                 {
-                    _context.Update(centreElection);
+                    _context.Update(vote);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CentreElectionExists(centreElection.CentreElectionId))
+                    if (!VoteExists(vote.VoteId))
                     {
                         return NotFound();
                     }
@@ -119,11 +119,11 @@ namespace ELECTION.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AdministrateurId"] = new SelectList(_context.Administrateurs, "AdministrateurId", "AdministrateurId", centreElection.AdministrateurId);
-            return View(centreElection);
+            ViewData["ElecteurId"] = new SelectList(_context.Electeurs, "ElecteurId", "ElecteurId", vote.ElecteurId);
+            return View(vote);
         }
 
-        // GET: CentreElections/Delete/5
+        // GET: Votes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,31 +131,31 @@ namespace ELECTION.Controllers
                 return NotFound();
             }
 
-            var centreElection = await _context.CentreElections
-                .Include(c => c.Administrateur)
-                .FirstOrDefaultAsync(m => m.CentreElectionId == id);
-            if (centreElection == null)
+            var vote = await _context.Votes
+                .Include(v => v.Electeur)
+                .FirstOrDefaultAsync(m => m.VoteId == id);
+            if (vote == null)
             {
                 return NotFound();
             }
 
-            return View(centreElection);
+            return View(vote);
         }
 
-        // POST: CentreElections/Delete/5
+        // POST: Votes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var centreElection = await _context.CentreElections.FindAsync(id);
-            _context.CentreElections.Remove(centreElection);
+            var vote = await _context.Votes.FindAsync(id);
+            _context.Votes.Remove(vote);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CentreElectionExists(int id)
+        private bool VoteExists(int id)
         {
-            return _context.CentreElections.Any(e => e.CentreElectionId == id);
+            return _context.Votes.Any(e => e.VoteId == id);
         }
     }
 }

@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using ELECTION.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ELECTION.Controllers
 {
+    [Authorize]
     public class CandidatsController : Controller
     {
         private readonly ELECTIONDBContext _context;
