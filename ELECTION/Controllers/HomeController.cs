@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ELECTION.Controllers
 {
-    
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -19,7 +19,7 @@ namespace ELECTION.Controllers
         {
             _logger = logger;
         }
-
+        
         public IActionResult Index()
         {
             ModelDashboardView dashboard = new ModelDashboardView();
