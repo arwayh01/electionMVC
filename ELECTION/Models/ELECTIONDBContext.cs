@@ -29,7 +29,7 @@ namespace ELECTION.Models
             if (!optionsBuilder.IsConfigured)
             {
 
-                optionsBuilder.UseSqlServer(@"Server=MARWA-PC\SQLEXPRESS1;Database=ELECTIONDB;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(@"Server=DESKTOP-CQ37K2U\MSSQLSERVER01;Database=ELECTIONDBnew;Trusted_Connection=True;");
             }
         }
 
