@@ -37,105 +37,90 @@
         <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - START --> 
 
         <div class="col-md-2">
-            <partial name="_LoginPartial.cshtml" />
+            <!--<partial name="_LoginPartial.cshtml" />-->
         </div>
-        <link href="~/assets/plugins/morris-chart/css/morris.css" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="~/assets/plugins/jquery-ui/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="assets/plugins/rickshaw-chart/css/graph.html" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="~/assets/plugins/rickshaw-chart/css/detail.html" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="~/assets/plugins/rickshaw-chart/css/legend.html" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="~/assets/plugins/rickshaw-chart/css/extensions.html" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="~/assets/plugins/rickshaw-chart/css/rickshaw.min.html" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="~/assets/plugins/rickshaw-chart/css/lines.html" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="~/assets/plugins/jvectormap/jquery-jvectormap-2.0.1.css" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="~/assets/plugins/icheck/skins/minimal/white.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="~/assets/plugins/morris-chart/css/morris.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="~/assets/plugins/jquery-ui/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="assets/plugins/rickshaw-chart/css/graph.html" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="~/assets/plugins/rickshaw-chart/css/detail.html" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="~/assets/plugins/rickshaw-chart/css/legend.html" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="~/assets/plugins/rickshaw-chart/css/extensions.html" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="~/assets/plugins/rickshaw-chart/css/rickshaw.min.html" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="~/assets/plugins/rickshaw-chart/css/lines.html" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="~/assets/plugins/jvectormap/jquery-jvectormap-2.0.1.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="~/assets/plugins/icheck/skins/minimal/white.css" rel="stylesheet" type="text/css" media="screen"/>
 
-        <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - END --> 
-
-
-        <!-- CORE CSS TEMPLATE - START -->
-        <link href="~/assets/css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="~/assets/css/responsive.css" rel="stylesheet" type="text/css"/>
-        <!-- CORE CSS TEMPLATE - END -->
-       <title>@ViewData["Title"] - ELECTION</title>
-    </head>
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - END -->
+            <!-- CORE CSS TEMPLATE - START -->
+            <link href="~/assets/css/style.css" rel="stylesheet" type="text/css" />
+            <link href="~/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+            <!-- CORE CSS TEMPLATE - END -->
+            <title>@ViewData["Title"] - ELECTION</title>
+</head>
 <body class="   pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
   <div class="pace-progress-inner"></div>
 </div>
 <div class="pace-activity"></div></div><!-- START TOPBAR -->
-        <div class="page-topbar">
-            <div class="logo-area">
+                           <div class="page-topbar">
+                               <div class="logo-area">
 
-            </div>
-            <div class="quick-area">
-                <div class="float-left">
-                    <ul class="info-menu left-links list-inline list-unstyled">
-                        <li class="sidebar-toggle-wrap list-inline-item">
-                            <a href="#" data-toggle="sidebar" class="sidebar_toggle">
-                                <i class="fa fa-bars"></i>
-                            </a>
-                        </li>
-     
-        
-                        <li class="d-sm-none d-none searchform list-inline-item showopacity">
-                            <form action="http://jaybabani.com/complete-admin/v6.4/bs4/fullmenu/ui-search.html" method="post">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-search"></i>
-                                    </span>
-                                    <input type="text" class="form-control animated fadeIn" placeholder="Search &amp; Enter">
-                                </div>
-                                <input type="submit" value="">
-                            </form>
-                        </li>
-                    </ul>
-                </div>		
-                <div class="float-right">
-                    <ul class="info-menu right-links list-inline list-unstyled">
-                        <li class="profile list-inline-item showopacity">
-                            <a href="#" data-toggle="dropdown" class="toggle">
-                                <img src="../data/profile/profile-blog.jpg" alt="user-image" class="rounded-circle img-inline">
-                                <span>Mark Yurey <i class="fa fa-angle-down"></i></span>
-                            </a>
-                            <ul class="dropdown-menu profile animated fadeIn">
-                                <li class="dropdown-item">
-                                    <a href="#settings">
-                                        <i class="fa fa-wrench"></i>
-                                        Settings
-                                    </a>
-                                </li>
-                                <li class="dropdown-item">
-                                    <a href="#profile">
-                                        <i class="fa fa-user"></i>
-                                        Profile
-                                    </a>
-                                </li>
-                                <li class="dropdown-item">
-                                    <a href="#help">
-                                        <i class="fa fa-info"></i>
-                                        Help
-                                    </a>
-                                </li>
-                                <li class="last dropdown-item">
-                                    <a href="ui-login.html">
-                                        <i class="fa fa-lock"></i>
-                                        Logout
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="chat-toggle-wrapper list-inline-item">
-                            <a href="#" data-toggle="chatbar" class="toggle_chat">
-                                <i class="fa fa-comments"></i>
-                                <span class="badge badge-pill badge-accent">9</span>
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </li>
-                    </ul>			
-                </div>		
-            </div>
+                               </div>
+                               <div class="quick-area">
+                                   <div class="float-left">
+                                       <ul class="info-menu left-links list-inline list-unstyled">
+                                           <li class="sidebar-toggle-wrap list-inline-item">
+                                               <a href="#" data-toggle="sidebar" class="sidebar_toggle">
+                                                   <i class="fa fa-bars"></i>
+                                               </a>
 
-        </div>
+                                           </li>
+
+
+                                           <li class="d-sm-none d-none searchform list-inline-item showopacity">
+
+                                               <form action="http://jaybabani.com/complete-admin/v6.4/bs4/fullmenu/ui-search.html" method="post">
+                                                   <div class="input-group">
+                                                       <span class="input-group-addon">
+                                                           <i class="fa fa-search"></i>
+                                                       </span>
+                                                       <input type="text" class="form-control animated fadeIn" placeholder="Search &amp; Enter">
+                                                   </div>
+                                                   <input type="submit" value="">
+                                               </form>
+                                           </li>
+                                       </ul>
+                                   </div>
+                                   <div class="float-right">
+                                       <ul class="info-menu right-links list-inline list-unstyled">
+                                           <li class="profile list-inline-item showopacity">
+                                               <a href="#" data-toggle="dropdown" class="toggle">
+                                                   <img src="../data/profile/profile-blog.jpg" alt="user-image" class="rounded-circle img-inline">
+                                                   <span>ADMIN <i class="fa fa-angle-down"></i></span>
+                                               </a>
+                                               <ul class="dropdown-menu profile animated fadeIn">
+                                                  
+
+
+
+
+                                                   <li class="last dropdown-item">
+                                                       <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                           <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                                                       </form>
+                                                   </li>
+
+
+
+
+                                               </ul>
+
+                                           </li>
+                                           
+                                       </ul>
+                                   </div>
+                               </div>
+
+                           </div>
         <!-- END TOPBAR -->
         <!-- START CONTAINER -->
         <div class="page-container row-fluid container-fluid">
@@ -145,25 +130,16 @@
             <div class="page-sidebar pagescroll">
 
                 <!-- MAIN MENU - START -->
-                <div class="page-sidebar-wrapper" id="main-menu-wrapper"> 
+                <div class="page-sidebar-wrapper" id="main-menu-wrapper">
 
                     <!-- USER INFO - START -->
                     <div class="profile-info row">
 
-                        <div class="profile-image col-4">
-                            <a href="ui-profile.html">
-                                <img alt="" src="../data/profile/profile-blog.jpg" class="img-fluid rounded-circle">
-                            </a>
-                        </div>
+                       
 
                         <div class="profile-details col-8">
 
-                            <h3>
-                                <a href="ui-profile.html">Mark Yurey</a>
-
-                                <!-- Available statuses: online, idle, busy, away and offline -->
-                                <span class="profile-status online"></span>
-                            </h3>
+                            
 
                             <p class="profile-title">Administrator</p>
 
@@ -174,51 +150,40 @@
 
 
 
-                    <ul class="wraplist" style="height: auto;">	
+                    <ul class="wraplist" style="height: auto;">
 
 
-                        <li class="open"> 
-                            <a href="index-blog.html">
+                        <li class="open">
+                            <a asp-controller="Home" asp-action="Index">
                                 <i class="fa fa-dashboard"></i>
                                 <span class="title">Dashboard</span>
                             </a>
                         </li>
-                     
-                        <li class="open"> 
+
+                        <li class="open">
                             <a asp-controller="Administrateurs" asp-action="Index">
                                 <i class="fa fa-user"></i>
-                                <span class="title" >Gestion des administrateurs</span>
+                                <span class="title">Gestion des administrateurs</span>
                             </a>
                         </li>
-                         <li class="open"> 
+                        <li class="open">
                             <a asp-controller="Candidats" asp-action="Index">
                                 <i class="fa fa-user"></i>
-                                <span class="title" >Gestion des Candidats</span>
+                                <span class="title">Gestion des Candidats</span>
                             </a>
                         </li>
-                               <li class="open"> 
+                        <li class="open">
                             <a asp-controller="CentreElections" asp-action="Index">
                                 <i class="fa fa-sitemap"></i>
-                                <span class="title" >Gestion des Centres</span>
+                                <span class="title">Gestion des Centres</span>
                             </a>
                         </li>
-                
-   
+
+
 
                     </ul>
 
-                    <div class="menustats">    
-                        <h5>Project Progress</h5>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-                            </div>
-                        </div>
-                        <h5>Target Achieved</h5>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-accent" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
-                            </div>
-                        </div>
-                    </div>
+                   
 
                 </div>
                 <!-- MAIN MENU - END -->
@@ -230,12 +195,13 @@
             <!-- START CONTENT -->
             <section id="main-content" class="">
                 <section class="wrapper main-wrapper row" style="">
-                    <partial name="_LoginPartial" />
+                    <!--   <partial name="_LoginPartial" /> -->
                     <div class="col-12">
                         <div class="page-title">
 
                             <div class="float-left">
-                                <!-- PAGE HEADING TAG - START --><h1 class="title">@ViewData["Titre"]</h1><!-- PAGE HEADING TAG - END -->
+                                <!-- PAGE HEADING TAG - START -->
+                                <h1 class="title">@ViewData["Titre"]</h1><!-- PAGE HEADING TAG - END -->
                             </div>
 
 
@@ -451,7 +417,8 @@
                         </li>
 
                     </ul>
-                <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 644px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 380px;"></div></div></div>
+                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 644px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 380px;"></div></div>
+                </div>
 
             </div>
 
@@ -461,7 +428,8 @@
 
 
 
-            </div>    </div>
+            </div>
+        </div>
         <!-- END CONTAINER -->
         <!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
 

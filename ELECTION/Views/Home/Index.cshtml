@@ -26,23 +26,7 @@
                     <div class="clearfix"></div>
                     <!-- MAIN CONTENT AREA STARTS -->
                     <div class="row margin-0">
-                        <div class="col-12 col-lg-6">
-                            <section class="box ">
-                                <header class="panel_header">
-                                    <h2 class="title float-left">Par Ville</h2>
-                                    <div class="actions panel_actions float-right">
-                                        <a class="box_toggle fa fa-chevron-down"></a>
-                                        <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
-                                        <a class="box_close fa fa-times"></a>
-                                    </div>
-                                </header>
-                                <div class="content-body">    <div class="row">
-                                        <div class="col-12">
-                                           <div class="chart" id="sales-chart" style="height: 300px; position: relative;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section></div>
+                        
 
                         <div class="col-12 col-lg-6">
                             <section class="box ">
@@ -101,41 +85,8 @@
 
                         <div class="clearfix"></div>
 
-                        <div class="col-12 col-lg-6">
-                            <section class="box ">
-                                <header class="panel_header">
-                                    <h2 class="title float-left">Polar chart</h2>
-                                    <div class="actions panel_actions float-right">
-                                        <a class="box_toggle fa fa-chevron-down"></a>
-                                        <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
-                                        <a class="box_close fa fa-times"></a>
-                                    </div>
-                                </header>
-                                <div class="content-body">    <div class="row">
-                                        <div class="col-lg-10 col-md-10 col-10 offset-lg-1 offset-md-1 offset-1">
-                                            <div class="chart" id="sales-chart" style="height: 300px; position: relative;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section></div>			
-
-                        <div class="col-12 col-lg-6">
-                            <section class="box ">
-                                <header class="panel_header">
-                                    <h2 class="title float-left">Radar chart</h2>
-                                    <div class="actions panel_actions float-right">
-                                        <a class="box_toggle fa fa-chevron-down"></a>
-                                        <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
-                                        <a class="box_close fa fa-times"></a>
-                                    </div>
-                                </header>
-                                <div class="content-body">    <div class="row">
-                                        <div class="col-lg-10 col-md-10 col-10 offset-lg-1 offset-md-1 offset-1">
-                                            <canvas id="radar-chartjs" width="254" height="254" style="width: 254px; height: 254px;"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section></div>			
+                       
+                       			
                     </div>
 
 
@@ -147,30 +98,20 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="~/assets/plugins/morris-chart/js/raphael-min.js" type="text/javascript"></script>
         <script src="~/assets/plugins/morris-chart/js/morris.min.js" type="text/javascript"></script>
-<script>
+        <script>
   $(function () {
     "use strict";
     //DONUT CHART
-    var donut = new Morris.Donut({
-      element: 'sales-chart',
-      resize: true,
-      colors: ["#3c8dbc", "#f56954", "#00a65a"],
-      data: [
-        {label: "Registered Doctors", value: @Model.doctors_count},
-        {label: "Registered Nurses", value: @Model.nurses_count},
-        {label: "Registered Patients", value: @Model.patients_count}
-      ],
-      hideHover: 'auto'
-    });
+
 
      var donut = new Morris.Donut({
       element: 'genre-chart',
       resize: true,
       colors: ["#3c8dbc", "#f56954", "#00a65a"],
       data: [
-        {label: "Homme", value: @Model.doctors_count},
-        {label: "Femme", value: @Model.nurses_count}
-     
+        {label: "Homme", value: @Model.femme_count},
+        {label: "Femme", value: @Model.homme_count}
+
       ],
       hideHover: 'auto'
     });
@@ -179,9 +120,9 @@
       resize: true,
       colors: ["#3c8dbc", "#f56954", "#00a65a"],
       data: [
-        {label: "Registered Doctors", value: @Model.doctors_count},
-        {label: "Registered Nurses", value: @Model.nurses_count},
-        {label: "Registered Patients", value: @Model.patients_count}
+        {label: "Nord", value: @Model.Nord_count},
+        {label: "Centre", value: @Model.centre_count},
+        {label: "Sud", value: @Model.sud_count}
       ],
       hideHover: 'auto'
     });
@@ -190,11 +131,12 @@
       resize: true,
       colors: ["#3c8dbc", "#f56954", "#00a65a"],
       data: [
-        {label: "Registered Doctors", value: @Model.doctors_count},
-        {label: "Registered Nurses", value: @Model.nurses_count},
-        {label: "Registered Patients", value: @Model.patients_count}
+        {label: "Sousse", value: @Model.sousse_count},
+        {label: "Sfax", value: @Model.sfax_count},
+          { label: "Tunis", value: @Model.tunis_count}
+        
       ],
       hideHover: 'auto'
     });
   });
-</script>
+        </script>

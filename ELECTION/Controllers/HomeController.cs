@@ -24,10 +24,15 @@ namespace ELECTION.Controllers
         {
             ModelDashboardView dashboard = new ModelDashboardView();
 
-            dashboard.doctors_count = 12;  
-            dashboard.nurses_count = 20;
-            dashboard.patients_count = 10;
-
+            dashboard.femme_count = 60;  
+            dashboard.homme_count = 40;
+            dashboard.centre_count = 30;
+            dashboard.sud_count = 20;
+            dashboard.Nord_count = 50;
+            dashboard.sfax_count = 25;
+            dashboard.tunis_count = 40;
+            dashboard.sousse_count = 35;
+            
             return View(dashboard);
         }
 
